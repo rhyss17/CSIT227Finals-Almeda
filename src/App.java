@@ -32,9 +32,9 @@ public class App extends JFrame {
         // add here how to make GUI visible
         App app = new App();
         app.setContentPane(app.pnlMain);
-        app.setSize(width: 500, height: 300);
+        app.setSize(500, 300);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        app.setVisible(True);
+        app.setVisible(true);
     }
     static void giveReward(int n) {
 

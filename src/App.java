@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,17 @@ public class App extends JFrame {
         type.add(rbManager);
         persons = new ArrayList<>();
         // TODO add implementations for all milestones here
+
+     btnClear.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             tfName.setText(null);
+             tfAge.setText(null);
+             tfMonths.setText(null);
+             tfSalary.setText(null);
+             tfLoad.setText(null);
+         }
+     });
     }
 
     public static void main(String[] args) {

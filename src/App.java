@@ -68,7 +68,6 @@ public class App extends JFrame {
                 tfMonths.setText(null);
                 tfSalary.setText(null);
                 tfLoad.setText(null);
-                }
             }
         });
 
@@ -82,6 +81,11 @@ public class App extends JFrame {
              tfLoad.setText(null);
          }
      });
+    }
+    class AgeNegativeException extends Exception {
+        public AgeNegativeException(String s){
+            super(s);
+        }
     }
 
     public static void main(String[] args) {

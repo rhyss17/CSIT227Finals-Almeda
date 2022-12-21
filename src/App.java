@@ -32,6 +32,45 @@ public class App extends JFrame {
         type.add(rbManager);
         persons = new ArrayList<>();
         // TODO add implementations for all milestones here
+        btnSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    String name = tfName.getText();
+                    int age = Integer.parseInt(tfAge.getText());
+
+                    if(age < 0){
+                        throw (new AgeNegativeException("Invalid Age"));
+                    }
+                    if (rbCustomer.isSelected()) {
+                        persons.add(new Person.Customer(name, age));
+                    } else if (rbClerk.isSelected()) {
+                        int month = Integer.parseInt(tfMonths.getText());
+                        int salary = Integer.parseInt(tfSalary.getText());
+                        persons.add(new Person.Employee.Clerk(name, age, month, salary));
+                    } else if (rbManager.isSelected()) {
+                        int month = Integer.parseInt(tfMonths.getText());
+                        int salary = Integer.parseInt(tfSalary.getText());
+                        persons.add(new Person.Employee.Manager(name, age, month, salary));
+                    }
+                }catch (InputMismatchException a){
+                    JOptionPane.showMessageDialog(null, "Invalid");
+                }catch(AgeNegativeException b){
+                    JOptionPane.showMessageDialog(null, b.getMessage());
+                }catch (NumberFormatException c){
+                    JOptionPane.showMessageDialog(null, "tried to enter letter as a number");
+                }catch (Exception d){
+
+                }
+
+                tfName.setText(null);
+                tfAge.setText(null);
+                tfMonths.setText(null);
+                tfSalary.setText(null);
+                tfLoad.setText(null);
+                }
+            }
+        });
 
      btnClear.addActionListener(new ActionListener() {
          @Override

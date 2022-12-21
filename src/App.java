@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class App extends JFrame {
@@ -53,15 +54,7 @@ public class App extends JFrame {
                         int salary = Integer.parseInt(tfSalary.getText());
                         persons.add(new Person.Employee.Manager(name, age, month, salary));
                     }
-                }catch (InputMismatchException a){
-                    JOptionPane.showMessageDialog(null, "Invalid");
-                }catch(AgeNegativeException b){
-                    JOptionPane.showMessageDialog(null, b.getMessage());
-                }catch (NumberFormatException c){
-                    JOptionPane.showMessageDialog(null, "tried to enter letter as a number");
-                }catch (Exception d){
 
-                }
 
                 tfName.setText(null);
                 tfAge.setText(null);
